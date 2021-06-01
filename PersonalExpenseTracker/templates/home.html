@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .leftside{
+        float: right;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<p><img src="../static/expense.jpeg" alt="logo" height="300px" width="300px" class="center" /></p>
+<hr style="height: 5px; background-color: cyan;">
+    <h2 style="text-align: center;">Welcome! Check your expenses and balence</h2>
+    <h4 style="text-align: center;">Hi {{email}} , <br> {{msg}}</h4> <br>
+    <a href="/login" class="btn btn-danger" style="margin-left:45%;">Logout</a>
+    <hr style="height: 5px; background-color: cyan;">
+    <div class="leftside">
+        <a href="/updatewallet/{{email}}" class="btn btn-success" method="POST">Update wallet</a> <br> <br>
+        <a href="/addbudget/{{email}}" class="btn btn-success">Add/Update Limit</a> <br> <br>
+        <a href="/viewlimits/{{email}}" class="btn btn-success">View Limit per month</a>
+    </div>
+    <div class="rightside">
+        <a href="/addexpense/{{email}}" class="btn btn-primary">Add an expense</a> <br> <br>
+        <a href="/viewallexpenses/{{email}}" class="btn btn-primary">Purchase history</a> <br> <br>
+        <a href="/graphs/{{email}}" class="btn btn-primary">Expense graphs</a>
+    </div>
+    
+    
+    
+
+    
+{% endblock %}

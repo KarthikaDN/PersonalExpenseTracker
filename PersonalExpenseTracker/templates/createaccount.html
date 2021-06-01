@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>Create New Account</h1>
+    <h2 style="text-align: center; color: steelblue;">{{msg10}}</h2>
+    <form action="/createaccount" method="POST">
+        Name: <br>
+        <input type="text" name="name1" placeholder="Enter your name" class="form-control" required> <br> <br>
+        Email: <br>
+        <input type="email" name="email1" value="{{email}}" placeholder="Email id" class="form-control" readonly> <br> <br>
+        <input type="hidden" name="eml" value="{{email}}" >
+        Gender: <br><input type="radio" name="gender1" >Male
+        <input type="radio" name="gender1" >Female <br> <br>
+        Password: <br>
+        <input type="password" name="pwd1" placeholder="Password" class="form-control" required> <br> <br>
+        <input type="password" name="pwd2" placeholder="Confirm password" class="form-control" required> <br> <br>
+        <input type="submit" value="Create Account">
+        <input type="reset" value="Reset">
+    </form>
+    <p style="color: red;font-size: 20px;">{{msg}} </p>
+    <p><a href="/login">Go back to Login Page</a></p>
+{% endblock %}

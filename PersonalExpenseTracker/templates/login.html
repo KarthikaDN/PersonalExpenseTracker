@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/login.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="login-main-text">
+           <h1>Personal Expense Tracker</h1> <br> <h3>Login Page</h3>
+           <p>Login or create new account from here to access.</p>
+        </div>
+        
+     </div>
+     <div class="main">
+        <div class="col-md-6 col-sm-12">
+           <div class="login-form">
+            <h5 class="alert alert-danger" style="background-color: white; border: 0px solid white;">{{msg}}</h5>
+              <form action="/home" method="POST">
+                 <div class="form-group">
+                    <label>User Name</label>
+                    <input type="email" name="email" class="form-control" placeholder="User Name" required>
+                 </div>
+                 <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="pwd" class="form-control" placeholder="Password" required>
+                 </div>
+                 <button type="submit" class="btn btn-success">Login</button>
+                 <a href="/" class="btn btn-warning">Go Back</a>
+                 <p>Forgot password? Don't worry <a href="/forgotpwd" >Reset here</a></p>
+                 <p>Don't have an account? <a href="/newaccount">Create Account</a></p>
+              </form>
+           </div>
+        </div>
+     </div>
+</body>
+</html>
+<!------ Include the above in your HEAD tag ---------->
+

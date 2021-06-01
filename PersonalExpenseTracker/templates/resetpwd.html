@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2 style="text-align: center;">Reset Your Password ( {{email}} )</h2>
+    <h4 style="text-align: center; color: green;">{{msg10}}</h4>
+    <form action="/updatepwd" method="POST">
+        Email: <br>
+        <input type="email" name="email" value="{{email}}" class="form-control" readonly> <br> <br>
+        New Password: <br>
+        <input type="password" name="pwd" placeholder="Enter new password" class="form-control" required> <br> <br>
+        Confirm Password: <br>
+        <input type="password" name="pwd1" placeholder="Enter again" class="form-control" required> <br> <br>
+        <input type="submit" value="Reset" class="btn btn-success">
+    </form>
+    <h4 style="text-align: center; color: red;">{{msg22}}</h4>
+    <a href="/login" class="btn btn-primary">Login</a>
+
+{% endblock %}

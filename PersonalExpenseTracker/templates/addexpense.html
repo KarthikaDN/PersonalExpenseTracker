@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <h3>Hi, {{email}} , add your expenses.</h3>
+    <!-- <h3>Available Balance in Wallet : {{balance}}</h3> -->
+    <form action="/newexpense/{{email}}" method="POST">
+        Email: <br>
+        <input type="email" name="email" value="{{email}}" class="form-control" readonly> <br> <br>
+        Date: <br>
+        <input type="date" name="date" min="2000-01-01" max="2030-01-01" class="form-control" required> <br> <br>
+        Category: <br>
+        <select name="expensetype" id="type" class="form-control" required>
+            <option value="Food">Food</option>
+            <option value="Stationaries">Stationaries</option>
+            <option value="Cloth">Cloth</option>
+            <option value="Hair Cut">Hair Cut</option>
+            <option value="Mobile/TV recharge">Mobile/TV recharge</option>
+            <option value="Electricity/Water bill">Electricity/Water bill</option>
+            <option value="Other">Other</option>
+          </select> <br> <br>
+        Amount paid: <br>
+        <input type="text" name="amount" placeholder="Amount Paid in Rupees" class="form-control" required> <br> <br>
+        <input type="submit" value="Add Expense" class="btn btn-success">
+        <a href="/home/{{email}}" class="btn btn-warning">Back</a>
+    </form>
+    <h4>{{msg}}</h4>
+{% endblock %}

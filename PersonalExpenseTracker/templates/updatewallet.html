@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <h2>Update wallet</h2>
+    <!-- <p>Available balance : {{amount}}</p> -->
+    <form action="/addmoney" method="POST">
+        Email: <br>
+        <input type="email" name="email" value={{email}} class="form-control" readonly> <br> <br>
+        Additional amount: <br>
+        <input type="text" name="amount" placeholder="Enter the amount to be added" class="form-control" required> <br> <br>
+        <input type="submit" class="btn btn-primary" class="form-control" value="UPDATE">
+        <a href="/home/{{email}}" class="btn btn-warning">Go back</a>
+        
+        <a href=""></a>
+    </form>
+    <h4 style="text-align: center; color: steelblue;">{{successmsg}}</h4>
+{% endblock%}

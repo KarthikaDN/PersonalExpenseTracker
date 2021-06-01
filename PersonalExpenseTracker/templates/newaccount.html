@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2 style="text-align: center; ">Create New Account</h2>
+    <form action="/verifymail" method="POST">
+        Email: <br>
+        <input type="email" name="email" placeholder="Enter your email" class="form-control" required> <br> 
+        <input type="submit" value="submit" class="btn btn-success" > <br> 
+    </form>
+    <h4 style="text-align: center; color: red;">{{msg}}</h4>
+    <hr style="height: 5px; background-color: steelblue;">
+    <form action="/checkotp_newaccount" method="POST">
+        Enter OTP: <br>
+        <input type="hidden" name="sent_otp" value="{{otp}}">
+        <input type="hidden" name="eml" value="{{email}}" >
+        <input type="text" name="entered_otp" placeholder="Enter 6 digit OTP" class="form-control" required> <br>
+        <input type="submit" value="Verify email" class="btn btn-success">
+
+    </form>
+    <h4 style="text-align: center; color: red;">{{msg9}}</h4>
+    <hr style="height: 5px; background-color: steelblue;">
+    <a href="/login" class="btn btn-danger" style="margin-left:45%;">Go Back</a>
+{% endblock %}

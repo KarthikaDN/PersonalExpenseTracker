@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block head %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+{% endblock %}
+{% block body %}
+
+    <h3 style="text-align: center;">Graphical representation of expenses ( {{email}} )</h3>
+    <form action="/getgraph/{{email}}" method="POST">
+        Email: <br>
+        <input type="email" value="{{email}}" class="form-control" readonly> <br> <br>
+        Select year: <br>
+        
+        <select name="years" style="width: 180px;" class="form-control" required>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+        </select> <br> <br>
+        <input type="submit" value="Generate Graph" class="btn btn-success">
+        <a href="/home/{{email}}" class="btn btn-warning">Go back</a>
+    </form>
+    <hr>
+    {{msg}}
+    <h3 style="text-align: center;">{{year}}</h3>
+    <canvas id="lineChart" width="900" height="400"></canvas>
+    <script>
+        var ctx = document.getElementById("lineChart").getContext("2d");
+        var lineChart = new Chart(ctx, {
+            type:"line",
+            data: {
+                labels: {{ labels | safe }},
+                datasets: [
+                    {
+                        label:"Amount in Rs.",
+                        data: {{values | safe }},
+                        fill: true,
+                        borderColor:"rgb(75,192,192)",
+                        lineTension:0.1
+                    }
+                ]
+            },
+            options: {
+                responsive:true,
+                scales: {
+                yAxes:[{
+                    scaleLabel:{
+                        display:true,
+                        labelString:'Amount in Rupees',
+                        fontSize:12,
+                        fontStyle:'bold'
+                    }
+                }],
+                xAxes:[{
+                    
+                    scaleLabel:{
+                        display:true,
+                        labelString:'Months',
+                        fontSize:12,
+                        fontStyle:'bold'
+                    }
+                }]
+            }
+        }
+            
+        });
+    </script>
+    
+{% endblock %}
